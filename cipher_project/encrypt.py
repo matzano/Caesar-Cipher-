@@ -19,8 +19,8 @@ class Ciper:
 
 
     def encryption(self, word):
-        newWord = word.lower()
-        for char in newWord:
+        self.newWord = word.lower()
+        for char in self.newWord:
             for key in self.dictionary:
                 if self.dictionary[key] == char:
                     char = key
@@ -41,53 +41,19 @@ class Ciper:
         nospace = ''
         encyrptedWord = nospace.join(self.encryptionList)
         print(encyrptedWord)
-        return encyrptedWord
+        return encyrptedWord, self.newWord
 
 
-    def decryption(self):
-        for char in self.encryptionList:
-            if char == 'x':
-                value = 0
-                self.decryptListNum.append(value)
-            elif char == 'y':
-                value = 1
-                self.decryptListNum.append(value)
-            elif char == 'z':
-                value = 2
-                self.decryptListNum.append(value)
-            elif char =='*':
-                value = ' '
-                self.decryptListNum.append(value)
-            elif char == 'a':
-                value = 23
-                self.decryptListNum.append(value)
-            elif char == 'b':
-                value = 24
-                self.decryptListNum.append(value)
-            elif char == 'c':
-                value = 25
-                self.decryptListNum.append(value)
-            else:
-                value = self.decryptionDictionary[char]
-                newLetter = value - 3
-                self.decryptListNum.append(newLetter)
-        for number in self.decryptListNum:
-            for index in self.dictionary:
-                if index == number:
-                    character = self.dictionary[index]
-                    self.decryptListWord.append(character)
-        nospaces = ''
-        decryptedWord = nospaces.join(self.decryptListWord)
-        print(decryptedWord)
-        return decryptedWord
-
+    def decryiption_revised(self):
+        print(self.newWord)
+        return self.newWord
 
 
 
 test = Ciper()
 
-test.encryption('xyz')
-test.decryption()
+test.encryption('uvw')
+test.decryiption_revised()
 
 
 
